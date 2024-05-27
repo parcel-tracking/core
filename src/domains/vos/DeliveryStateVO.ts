@@ -1,4 +1,4 @@
-import IDeliveryStateVO from "../interfaces/IDeliveryStateVO"
+import IDeliveryStateVO from "./interfaces/IDeliveryStateVO"
 
 export default class DeliveryStateVO implements IDeliveryStateVO {
   constructor(

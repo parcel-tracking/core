@@ -1,4 +1,4 @@
-import IDeliveryLocationVO from "../interfaces/IDeliveryLocationVO"
+import IDeliveryLocationVO from "./interfaces/IDeliveryLocationVO"
 
 export default class DeliveryLocationVO implements IDeliveryLocationVO {
   constructor(

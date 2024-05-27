@@ -1,4 +1,4 @@
-import ICarrier from "../interfaces/ICarrier"
+import ICarrier from "./interfaces/ICarrier"
 
 export default abstract class Carrier implements ICarrier {
   constructor(
@@ -6,7 +6,6 @@ export default abstract class Carrier implements ICarrier {
     readonly id: string,
     readonly name: string,
     readonly isCrawlable: boolean,
-    readonly popupAPIUrl?: string
   ) {}
 
   abstract getPopupURL(trackingNumber: string): string

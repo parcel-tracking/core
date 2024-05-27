@@ -1,6 +1,6 @@
-import ICarrier from "../../interfaces/ICarrier"
 import EMS from "../../entities/carriers/EMS"
-import { CarrierFactory } from "../CarrierFactory"
+import ICarrier from "../../entities/interfaces/ICarrier"
+import CarrierFactory from "../CarrierFactory"
 
 export default class EMSFactory extends CarrierFactory {
   protected createCarrier(): ICarrier {

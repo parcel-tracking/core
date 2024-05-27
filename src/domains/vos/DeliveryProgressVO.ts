@@ -1,5 +1,5 @@
-import IDeliveryProgressVO from "../interfaces/IDeliveryProgressVO"
-import IDeliveryStateVO from "../interfaces/IDeliveryStateVO"
+import IDeliveryProgressVO from "./interfaces/IDeliveryProgressVO"
+import IDeliveryStateVO from "./interfaces/IDeliveryStateVO"
 import DeliveryStateVO from "./DeliveryStateVO"
 
 export default class DeliveryProgressVO implements IDeliveryProgressVO {

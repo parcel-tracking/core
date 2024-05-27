@@ -1,7 +1,7 @@
-import ICarrier from "./interfaces/ICarrier"
-import ITracker from "./interfaces/ITracker"
+import ICarrier from "../entities/interfaces/ICarrier"
+import ITrackerDTO from "./interfaces/ITrackerDTO"
 
-export default class Tracker implements ITracker {
+export default class TrackerDTO implements ITrackerDTO {
   constructor(
     public readonly id: string,
     public carrier: ICarrier,

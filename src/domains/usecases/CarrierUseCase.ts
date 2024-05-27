@@ -1,12 +1,14 @@
-import ICarrierFactory from "../interfaces/ICarrierFactory"
-import ICarrierUseCase from "../interfaces/ICarrierUseCase"
+import ICarrierRepository from "../interfaces/ICarrierRepository"
+import ICarrierUseCase from "./interfaces/ICarrierUseCase"
 
 export default class CarrierUseCase implements ICarrierUseCase {
-  private carriers: Map<string, ICarrierFactory>
+  private carrierRepository: ICarrierRepository
 
-  constructor(carriers: Map<string, ICarrierFactory>) {
-    this.carriers = carriers
+  constructor(carrierRepository: ICarrierRepository) {
+    this.carrierRepository = carrierRepository
   }
 
-  
+  async getCarriers() {
+    return await this.carrierRepository.getCarriers()
+  }
 }

@@ -1,6 +1,6 @@
-import ICarrier from "../../interfaces/ICarrier"
-import EPost from "../../entities/carriers/Epost"
-import { CarrierFactory } from "../CarrierFactory"
+import EPost from "../../entities/carriers/EPost"
+import ICarrier from "../../entities/interfaces/ICarrier"
+import CarrierFactory from "../CarrierFactory"
 
 export default class EPostFactory extends CarrierFactory {
   protected createCarrier(): ICarrier {
