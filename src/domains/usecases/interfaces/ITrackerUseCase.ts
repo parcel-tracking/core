@@ -1,13 +1,8 @@
-import IDeliveryDTO from "../../../dtos/interfaces/IDeliveryDTO"
-import ITrackerDTO from "../../../dtos/interfaces/ITrackerDTO"
+import ITrackerDTO from "../../dtos/interfaces/ITrackerDTO"
 import ICarrier from "../../entities/interfaces/ICarrier"
 import ITracker from "../../entities/interfaces/ITracker"
 
 export default interface ITrackerUseCase {
-  getDelivery(
-    carrierId: string,
-    trackingNumber: string
-  ): Promise<IDeliveryDTO[]>
   addTracker(): Promise<boolean>
   getTrackers(): Promise<ITrackerDTO[]>
   updateCarrier(tracker: ITracker, newCarrier: ICarrier): Promise<boolean>
