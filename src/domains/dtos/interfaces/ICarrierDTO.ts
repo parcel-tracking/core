@@ -3,5 +3,5 @@ export default interface ICarrierDTO {
   readonly id: string
   readonly name: string
   readonly isCrawlable: boolean
-  getPopupURL(trackingNumber: string): string
+  readonly popupAPIUrl: string
 }

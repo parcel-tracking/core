@@ -1,4 +1,3 @@
-import ICarrier from "../entities/interfaces/ICarrier"
 import ICarrierDTO from "./interfaces/ICarrierDTO"
 
 export default class CarrierDTO implements ICarrierDTO {
@@ -7,10 +6,6 @@ export default class CarrierDTO implements ICarrierDTO {
     readonly id: string,
     readonly name: string,
     readonly isCrawlable: boolean,
-    private readonly carrier: ICarrier
+    readonly popupAPIUrl: string
   ) {}
-
-  getPopupURL(trackingNumber: string): string {
-    return this.carrier.getPopupURL(trackingNumber)
-  }
 }
