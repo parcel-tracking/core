@@ -25,32 +25,60 @@ export default class CarrierUseCase implements ICarrierUseCase {
       })
     }
 
-    const carriers = data.map((carrier: ICarrierDTO) => {
-      return new Carrier({
-        id: carrier.id,
-        no: carrier.no,
-        name: carrier.name,
-        displayName: carrier.displayName,
-        isCrawlable: carrier.isCrawlable,
-        isPopupEnabled: carrier.isPopupEnabled,
-        popupURL: carrier.popupURL
-      })
+    const carriers = data.map((carrierDTO: ICarrierDTO) => {
+      return this.convertToEntity(carrierDTO)
     })
 
     const carrierDTOs = carriers.map((carrier: ICarrier) => {
-      return new CarrierDTO({
-        id: carrier.id,
-        no: carrier.no,
-        name: carrier.name,
-        displayName: carrier.displayName,
-        isCrawlable: carrier.isCrawlable,
-        isPopupEnabled: carrier.isPopupEnabled,
-        popupURL: carrier.popupURL
-      })
+      return this.convertToDTO(carrier)
     })
 
     return new LayerDTO({
       data: carrierDTOs
+    })
+  }
+
+  async getCarrier(carrierId: string): Promise<ILayerDTO<ICarrierDTO>> {
+    const { isError, message, data } = await this.carrierRepository.getCarrier(
+      carrierId
+    )
+
+    if (isError) {
+      return new LayerDTO({
+        isError,
+        message
+      })
+    }
+
+    const carriers = this.convertToEntity(data)
+    const carrierDTOs = this.convertToDTO(carriers)
+
+    return new LayerDTO({
+      data: carrierDTOs
+    })
+  }
+
+  protected convertToEntity(carrierDTO: ICarrierDTO): ICarrier {
+    return new Carrier({
+      id: carrierDTO.id,
+      no: carrierDTO.no,
+      name: carrierDTO.name,
+      displayName: carrierDTO.displayName,
+      isCrawlable: carrierDTO.isCrawlable,
+      isPopupEnabled: carrierDTO.isPopupEnabled,
+      popupURL: carrierDTO.popupURL
+    })
+  }
+
+  protected convertToDTO(carrier: ICarrier): ICarrierDTO {
+    return new CarrierDTO({
+      id: carrier.id,
+      no: carrier.no,
+      name: carrier.name,
+      displayName: carrier.displayName,
+      isCrawlable: carrier.isCrawlable,
+      isPopupEnabled: carrier.isPopupEnabled,
+      popupURL: carrier.popupURL
     })
   }
 }
