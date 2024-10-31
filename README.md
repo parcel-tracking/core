@@ -1,3 +1,7 @@
+## ⚠️ Discontinued
+
+> The configuration using Git submodules is deprecated and replaced with a monorepo configuration.
+
 # Parcel Tracking - Core
 
 This is a clean architecture-based domain area that searches delivery information by scraping from the courier company using the invoice number. It is used as a submodule in services (clients, servers, etc.) that use the domain.
